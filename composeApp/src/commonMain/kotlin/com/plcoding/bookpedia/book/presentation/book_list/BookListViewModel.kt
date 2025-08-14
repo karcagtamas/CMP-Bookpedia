@@ -42,7 +42,10 @@ class BookListViewModel(
 
     fun onAction(action: BookListAction) {
         when (action) {
-            is BookListAction.OnBookClick -> TODO()
+            is BookListAction.OnBookClick -> {
+
+            }
+
             is BookListAction.OnSearchQueryChange -> {
                 _state.update {
                     it.copy(searchQuery = action.query)

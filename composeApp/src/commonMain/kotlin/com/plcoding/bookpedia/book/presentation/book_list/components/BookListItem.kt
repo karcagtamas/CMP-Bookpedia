@@ -2,7 +2,6 @@ package com.plcoding.bookpedia.book.presentation.book_list.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.content.MediaType.Companion.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -107,41 +106,41 @@ fun BookListItem(
                     }
                 }
             }
-        }
 
-        Column(
-            modifier = Modifier
-                .fillMaxHeight(),
-            //.weight(1f),
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Text(
-                text = book.title,
-                style = MaterialTheme.typography.titleMedium,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-            )
-            book.authors.firstOrNull()?.let { authorName ->
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .weight(1f),
+                verticalArrangement = Arrangement.Center,
+            ) {
                 Text(
-                    text = authorName,
-                    style = MaterialTheme.typography.bodyLarge,
-                    maxLines = 1,
+                    text = book.title,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
-            }
-            book.averageRating?.let { rating ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
+                book.authors.firstOrNull()?.let { authorName ->
                     Text(
-                        text = "${round(rating * 10) / 10.0}",
-                        style = MaterialTheme.typography.bodyMedium,
+                        text = authorName,
+                        style = MaterialTheme.typography.bodyLarge,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
                     )
-                    Icon(
-                        imageVector = Icons.Default.Star,
-                        contentDescription = null,
-                        tint = SandYellow,
-                    )
+                }
+                book.averageRating?.let { rating ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Text(
+                            text = "${round(rating * 10) / 10.0}",
+                            style = MaterialTheme.typography.bodyMedium,
+                        )
+                        Icon(
+                            imageVector = Icons.Default.Star,
+                            contentDescription = null,
+                            tint = SandYellow,
+                        )
+                    }
                 }
             }
         }
